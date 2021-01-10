@@ -25,6 +25,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// A class that represents a section in a table view.
 open class Section {
@@ -48,5 +49,8 @@ open class Section {
 
   /// The text of the section footer.
   open var footer: String?
+  
+  open var view: UIView?
 
+  open var height: CGFloat?
 }

@@ -54,17 +54,19 @@ internal final class ExampleViewController: QuickTableViewController {
     let gear = #imageLiteral(resourceName: "iconmonstr-gear")
     let globe = #imageLiteral(resourceName: "iconmonstr-globe")
     let time = #imageLiteral(resourceName: "iconmonstr-time")
-
+    
+    let sec =  Section(title: "Switch", rows: [
+      SwitchRow(text: "Setting 1", detailText: .subtitle("Example subtitle"), switchValue: true, icon: .image(globe), action: didToggleSwitch()),
+      SwitchRow(text: "Setting 2", switchValue: false, icon: .image(time), action: didToggleSwitch())
+    ])
+    
     tableContents = [
-      Section(title: "Switch", rows: [
-        SwitchRow(text: "Setting 1", detailText: .subtitle("Example subtitle"), switchValue: true, icon: .image(globe), action: didToggleSwitch()),
-        SwitchRow(text: "Setting 2", switchValue: false, icon: .image(time), action: didToggleSwitch())
-      ]),
-
+      
+      sec,
       Section(title: "Tap Action", rows: [
         TapActionRow(text: "Tap action", action: showAlert())
       ]),
-
+      
       Section(title: "Navigation", rows: [
         NavigationRow(text: "CellStyle.default", detailText: .none, icon: .image(gear)),
         NavigationRow(text: "CellStyle", detailText: .subtitle(".subtitle"), icon: .image(globe), accessoryButtonAction: showDetail()),

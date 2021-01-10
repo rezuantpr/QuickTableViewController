@@ -104,7 +104,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   }
 
   open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return tableContents[section].title
+    return tableContents[section].view == nil ? tableContents[section].footer : nil
   }
 
   open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -189,6 +189,14 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
     }
   }
   #endif
+  
+  open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    return tableContents[section].view
+  }
+  
+  public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return tableContents[section].height ?? 24
+  }
 
 }
 
