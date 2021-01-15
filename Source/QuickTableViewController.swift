@@ -104,7 +104,7 @@ open class QuickTableViewController: UIViewController, UITableViewDataSource, UI
   }
 
   open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return tableContents[section].view == nil ? tableContents[section].footer : nil
+    return tableContents[section].view == nil ? tableContents[section].title : nil
   }
 
   open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
